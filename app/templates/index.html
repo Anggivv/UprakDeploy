@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Judul Halaman -->
+	<title>INSIGHT 2</title>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- Icon -->
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	
+	<!-- CSS -->
+	<link rel="stylesheet" href={{ url_for('static', filename='/css/bootstrap.min.css') }} type="text/css">
+	<link rel="stylesheet" href={{ url_for('static', filename='/css/client_side.css') }}  type="text/css">
+	
+	<!-- JavaScript -->
+	<script src={{ url_for('static', filename='/js/jquery_3.6.0.min.js') }} ></script>
+	<script src={{ url_for('static', filename='/js/bootstrap_3.4.1.min.js') }} ></script>
+</head>
+
+<body id="halamanku" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+	<!-- Navigation Bar -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			
+			<!-- Logo -->
+			<div class="navbar-header">
+				<img src={{ url_for('static', filename='/images/logo-1.png') }} alt="Orbit Logo" 
+				width="60" height="50" align="left">
+				<a class="navbar-brand" href="#halamanku">&#160; Orbit Future Academy</a>
+			</div>
+			
+			<!-- Daftar Halaman -->
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#informasi">INFORMASI</a></li>
+					<li><a href="#aplikasi">APLIKASI</a></li>
+					<li><a href="#anggotaKelompok">ANGGOTA KELOMPOK</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Bagian Halaman (Informasi) -->
+	<div id="informasi" class="container-fluid">
+		<br>
+		<br>
+		<br>
+		<div class="row">
+			<div class="col-sm-6">
+				<!-- Deskripsi Aplikasi -->
+				<h2>ICA</h2>
+				<h4>Iris ClAssifier</h4><br>
+				<p style="text-align: justify;text-justify: inter-word;">
+					This application is made to determine the species of the iris flower based on the measurement of length and width
+					of <i>sepals</i> and <i>petals</i> flowers. "Iris Setosa", "Iris Versicolor", and "Iris Virginica"
+					are the three species of iris that can be predicted through this application.
+					The user only needs to provide 4 measurement values to be able to find out the species of the iris.
+					The four measurement values are the length of <i>petals</i>, width of <i>petals</i>, length of <i>sepals</i>,
+					and the width of the <i>sepals</i>.
+				</p>
+				<br>
+
+				<!-- Tombol Mulai -->
+				<nav id="navgo" class="navbar" style="background-color:#dcc5e2;z-index: 0;">
+					<ul class="nav nav-pills">
+						<li class="nav-item">
+							<a class="btn btn-default btn-lg" href="#aplikasi" style="background-color:#d291bc">Mulai</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			
+			<div class="col-sm-6">
+				<br>
+				<br>
+				<!-- Gambar Deskripsi Aplikasi -->
+				<img src={{ url_for('static', filename='/images/app-display.JPG') }} width="500" style="border-radius: 25px;"></img>
+			</div>
+		</div>
+		<br>
+	</div>
+	
+
+	<!-- Bagian Halaman (Aplikasi) -->
+	<div id="aplikasi" data-bs-spy="scroll" data-bs-target="#navgo" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+		<br>
+		<br>
+		<div class="row">
+			<div class="col-sm-6">
+				</br>
+				<!-- Input Nilai Pengukuran dari Pengguna -->
+				<h3 style="margin-left: 50px;">Nilai Pengukuran </h3>
+				<form>
+					<div class="form-group" style="margin-left: 50px;">
+						<!-- Input Slider untuk Nilai Pengukuran Bunga Iris -->
+						<label for="range_sepal_length">Sepal Length (cm) </label>&nbsp;&rarr;&nbsp;
+						<input type="text" min="4.3" max="7.9" step="0.05" placeholder="Masukkan Angka" id="range_sepal_length" 
+						onInput="$('#rangeVal_sepal_length').html($(this).val())">
+						</br>
+						<label for="range_sepal_width">Sepal Width (cm) </label>&nbsp;&rarr;&nbsp;
+						<input type="text" min="2.0" max="4.4" step="0.05" placeholder="Masukkan Angka" id="range_sepal_width" 
+						onInput="$('#rangeVal_sepal_width').html($(this).val())">
+						</br>
+						<label for="range_petal_length">Petal Length (cm) </label>&nbsp;&rarr;&nbsp;
+						<input type="text" min="1.0" max="6.9" step="0.05" placeholder="Masukkan Angka" id="range_petal_length" 
+						onInput="$('#rangeVal_petal_length').html($(this).val())">
+						</br>
+						<label for="range_petal_width">Petal Width (cm) </label>&nbsp;&rarr;&nbsp;
+						<input type="text" min="0.1" max="2.5" step="0.05" placeholder="Masukkan Angka" id="range_petal_width" 
+						onInput="$('#rangeVal_petal_width').html($(this).val())">
+						<!-- Tombol Prediksi -->
+						<button type="submit" id="prediksi_submit" class="btn btn-default btn-lg" style="background-color:#d291bc">Prediksi</button>
+					</div>
+				</form>
+			</div>
+			<div class="col-sm-6">
+				<br>
+				<!-- Bagian Halaman untuk Hasil Prediksi -->
+				<div id="hasil_prediksi" align="center">
+						<!-- Hasil Prediksi akan ditampilkan di sini-->
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+	</div>
+
+	<!-- Bagian Halaman (Anggota Kelompok) -->
+	<div id="anggotaKelompok" class="container-fluid text-center">
+		<br>
+		<h2>ANGGOTA KELOMPOK</h2>
+		<h4>INSIGHT 2</h4>
+		<br>
+		<div class="row slideanim">
+			<div class="col-sm-4">
+				<img src={{ url_for('static', filename='/images/anggi.jpg') }} width="200" ></img>
+				<h4>Anggi Vivi Febrina Silalahi</h4>
+				<p>Universitas Udayana</p>
+			</div>
+			<div class="col-sm-4">
+				<img src={{ url_for('static', filename='/images/agustina.jpg') }} width="150" ></img>
+				<h4>Agustina Setianing Budi</h4>
+				<p>Universitas Udayana</p>
+			</div>
+			<div class="col-sm-4">
+				<img src={{ url_for('static', filename='/images/indah.jpg') }} width="150" ></img>
+				<h4>Indah Wulandari</h4>
+				<p>Universitas Sari Mulia</p>
+			</div>
+		</div>
+	    <br>
+	    <div class="row slideanim">
+			<div class="col-sm-6">
+				<img src={{ url_for('static', filename='/images/Maria Ulfah.jpg') }} width="200" ></img>
+				<h4>Maria Ulfah</h4>
+				<p>Universitas Sari Mulia</p>
+			</div>
+			<div class="col-sm-6">
+				<img src={{ url_for('static', filename='/images/zaini.jpg') }} width="200" ></img>
+				<h4>M. Zaini Bakri</h4>
+				<p>Universitas Sari Mulia</p>
+			</div>
+	    </div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="container-fluid text-center">
+		<a href="#halamanku" title="To Top">
+			<span class="glyphicon glyphicon-chevron-up"></span>
+		</a>
+		<p>INSIGHT 2 <br> <a href="https://orbitfutureacademy.id/">orbitfutureacademy.id</a></p>
+	</footer>
+
+	<!-- JavaScript untuk Animasi Scroll dan Prediksi Model -->
+	<script  src={{ url_for('static', filename='/js/client_side.js') }}></script>
+
+</body>
+</html>
